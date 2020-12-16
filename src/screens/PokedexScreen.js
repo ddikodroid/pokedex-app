@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
 import PokeCard from '../components/PokeCard';
-//import newAPI from '../apis/PokemonAPI';
 import axios from 'axios';
 
 const PokedexScreen = () => {
@@ -12,7 +11,7 @@ const PokedexScreen = () => {
 
   const getPokemon = () => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=10')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=5')
 
       .then((response) => {
         setPokemon(response.data.results);
@@ -32,7 +31,7 @@ const PokedexScreen = () => {
     <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.flatList}
-        numColumns={2}
+        numColumns={3}
         data={pokemon}
         keyExtractor={(item, index) => 'key' + index}
         renderItem={(item) => {
