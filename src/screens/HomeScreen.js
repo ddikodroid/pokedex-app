@@ -5,12 +5,29 @@ const HomeScreen = ({navigation}) => {
   const NavigateToPokedex = () => {
     navigation.navigate('Pokedex');
   };
+  const NavigateToSignIn = () => {
+    navigation.navigate('Sign In');
+  };
+  const NavigateToSignUp = () => {
+    navigation.navigate('Sign Up');
+  };
 
   return (
     <View style={styles.container}>
+      <Text>ϞϞ(๑⚈ ․̫ ⚈๑)∩</Text>
       <TouchableOpacity>
         <Text style={styles.buttonText} onPress={NavigateToPokedex}>
           Go To Pokedex
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.buttonText} onPress={NavigateToSignIn}>
+          Check Sign In Screen
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.buttonText} onPress={NavigateToSignUp}>
+          Check Sign Up Screen
         </Text>
       </TouchableOpacity>
     </View>

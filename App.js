@@ -8,8 +8,9 @@ import {createStackNavigator, HeaderTitle} from '@react-navigation/stack';
 import SplashScreen from './src/screens/SplashScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import PokedexScreen from './src/screens/PokedexScreen';
-import { Header } from 'react-native/Libraries/NewAppScreen';
-
+import {Header} from 'react-native/Libraries/NewAppScreen';
+import SignInScreen from './src/screens/SignInScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -17,9 +18,15 @@ const App = () => {
     <NavigationContainer>
       {
         <Stack.Navigator initialRouteName="Splash">
-          <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown: false}}/>
+          <Stack.Screen
+            name="Splash"
+            component={SplashScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Pokedex" component={PokedexScreen} />
+          <Stack.Screen name="Sign In" component={SignInScreen} />
+          <Stack.Screen name="Sign Up" component={SignUpScreen} />
         </Stack.Navigator>
       }
     </NavigationContainer>
