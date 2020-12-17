@@ -11,11 +11,11 @@ const PokedexScreen = () => {
 
   const getPokemon = () => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=5')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=151')
 
       .then((response) => {
         setPokemon(response.data.results);
-        console.log('-D-I-K-O-', response.data.results);
+        //console.log('-D-I-K-O-', response.data.results);
         return response.data.results;
       })
       .then((data) => {
@@ -35,7 +35,6 @@ const PokedexScreen = () => {
         data={pokemon}
         keyExtractor={(item, index) => 'key' + index}
         renderItem={(item) => {
-          console.log('Ini adalah', item);
           return <PokeCard item={item} />;
         }}
       />
