@@ -4,13 +4,18 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import PokeDetail from './PokeDetail';
 
 const PokeCard = ({item}) => {
-  console.log(typeof item.index.toString());
+  //console.log(typeof item.index.toString());
   const [detailVisible, setDetailVisible] = useState(false);
   return (
     <>
       <PokeDetail
         onPress={() => setDetailVisible(!detailVisible)}
         detailVisible={detailVisible}
+        data={item.item.url}
+        uri={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+          item.index + 1
+        }.png`}
+        index={item.index + 1}
       />
       <TouchableOpacity onPress={() => setDetailVisible(true)}>
         <View style={styles.card}>
@@ -26,9 +31,8 @@ const PokeCard = ({item}) => {
           <Image
             style={styles.image}
             resizeMode="contain"
-            //source={require('../../assets/155.png')}
             source={{
-              uri: `https://pokeres.bastionbot.org/images/pokemon/${
+              uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 item.index + 1
               }.png`,
             }}
@@ -73,13 +77,7 @@ const styles = StyleSheet.create({
   //     fontSize: 18,
   //   },
   image: {
-    height: height / 14,
-    width: width / 6,
+    height: height / 12,
+    width: width / 4,
   },
-  //   author: {
-  //     marginVertical: height * 0.01,
-  //     marginHorizontal: width * 0.1,
-  //     fontSize: 15,
-  //     color: 'gray',
-  //   },
 });
