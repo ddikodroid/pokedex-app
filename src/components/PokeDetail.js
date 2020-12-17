@@ -44,13 +44,12 @@ const PokeDetail = (props) => {
             resizeMode="contain"
             source={{uri: imagePokemon ? uriBasic : uriShiny}}
           />
+          <Text>{imagePokemon ? 'Basic' : 'Shiny'}</Text>
           <TouchableOpacity onPress={changeToShiny}>
-            <Text style={styles.buttonText}>
-              {imagePokemon ? 'Shiny Form' : 'Basic Form'}
-            </Text>
+            <Text style={styles.buttonText}>Change Form</Text>
           </TouchableOpacity>
-          <Text>Type(s): {typePokemon}</Text>
-          <Text>Abilitie(s): {abilityPokemon}</Text>
+          <Text>Type: {typePokemon}</Text>
+          <Text>Ability: {abilityPokemon}</Text>
           <TouchableOpacity onPress={props.onPress}>
             <Text style={styles.buttonText}>Back</Text>
           </TouchableOpacity>
