@@ -1,7 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({route, navigation}) => {
+  const {username} = route.params;
   const NavigateToPokedex = () => {
     navigation.navigate('Pokedex');
   };
@@ -14,6 +21,9 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <View style={{alignSelf: 'flex-start'}}>
+        <Text style={styles.title}>Hello, {username}</Text>
+      </View>
       <Text>ϞϞ(๑⚈ ․̫ ⚈๑)∩</Text>
       <TouchableOpacity>
         <Text style={styles.buttonText} onPress={NavigateToPokedex}>
@@ -35,15 +45,21 @@ const HomeScreen = ({navigation}) => {
 };
 
 export default HomeScreen;
-
+const {width, height} = Dimensions.get('screen');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: width * 0.04,
   },
   buttonText: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
   },
 });
