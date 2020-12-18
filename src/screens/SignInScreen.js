@@ -41,9 +41,7 @@ const SignInScreen = ({navigation}) => {
           placeholder="Password"
           placeholderTextColor="#757575"
         />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={NavigateToHomeScreen}>
+        <TouchableOpacity style={styles.button} onPress={NavigateToHomeScreen}>
           <Text style={{fontSize: 16, fontWeight: 'bold'}}>Sign In</Text>
         </TouchableOpacity>
         <View style={{flexDirection: 'row', marginVertical: height * 0.01}}>
