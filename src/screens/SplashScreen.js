@@ -3,13 +3,22 @@ import {StyleSheet, View, Dimensions} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 const SplashScreen = ({navigation}) => {
+  // useEffect(() => {
+  //   NavigateToHomeScreen();
+  // }, []);
+
+  // const NavigateToHomeScreen = () => {
+  //   setTimeout(function () {
+  //     navigation.reset({index: 0, routes: [{name: 'Home'}]});
+  //   }, 3000);
+  // };
   useEffect(() => {
-    NavigateToHomeScreen();
+    NavigateToSignInScreen();
   }, []);
 
-  const NavigateToHomeScreen = () => {
+  const NavigateToSignInScreen = () => {
     setTimeout(function () {
-      navigation.reset({index: 0, routes: [{name: 'Home'}]});
+      navigation.reset({index: 0, routes: [{name: 'Sign In'}]});
     }, 3000);
   };
   return (
