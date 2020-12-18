@@ -28,7 +28,6 @@ const PokeDetail = (props) => {
           .map((ability) => ability.ability.name)
           .join(', '),
       );
-      console.log(abilityPokemon);
     });
   });
   return (

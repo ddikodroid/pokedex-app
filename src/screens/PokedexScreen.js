@@ -15,13 +15,7 @@ const PokedexScreen = () => {
 
       .then((response) => {
         setPokemon(response.data.results);
-        //console.log('-D-I-K-O-', response.data.results);
         return response.data.results;
-      })
-      .then((data) => {
-        data.map((data) => {
-          axios.get(data.url).then((data) => console.log(data));
-        });
       })
       .catch(function (error) {
         console.log(error);
