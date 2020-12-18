@@ -23,9 +23,13 @@ const App = () => {
             component={SplashScreen}
             options={{headerShown: false}}
           />
+          <Stack.Screen
+            name="Sign In"
+            component={SignInScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Pokedex" component={PokedexScreen} />
-          <Stack.Screen name="Sign In" component={SignInScreen} />
           <Stack.Screen name="Sign Up" component={SignUpScreen} />
         </Stack.Navigator>
       }
