@@ -1,9 +1,16 @@
-import React from 'react'
-import { StyleSheet, Text, View, Dimensions, TextInput, TouchableOpacity } from 'react-native'
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 
 const SignUpScreen = () => {
-    return (
-        <View style={styles.container}>
+  return (
+    <View style={styles.container}>
       <View style={{marginHorizontal: width * 0.05}}>
         <Text>Start the journey,</Text>
         <Text style={styles.title}>Sign up here👇</Text>
@@ -14,7 +21,7 @@ const SignUpScreen = () => {
           placeholder="First Name"
           placeholderTextColor="#757575"
         />
-                <TextInput
+        <TextInput
           //value={username}
           label="lastName"
           style={styles.input}
@@ -36,17 +43,15 @@ const SignUpScreen = () => {
           placeholder="Password"
           placeholderTextColor="#757575"
         />
-        <TouchableOpacity
-          style={styles.button}>
+        <TouchableOpacity style={styles.button}>
           <Text style={{fontSize: 16, fontWeight: 'bold'}}>Sign Up</Text>
         </TouchableOpacity>
-
       </View>
     </View>
-    )
-}
+  );
+};
 
-export default SignUpScreen
+export default SignUpScreen;
 
 const {width, height} = Dimensions.get('screen');
 const styles = StyleSheet.create({
