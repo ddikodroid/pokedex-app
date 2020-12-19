@@ -27,10 +27,15 @@ const App = () => {
             name="Sign In"
             component={SignInScreen}
             options={{headerShown: false}}
+            initialParams={{firstName: 'User'}}
           />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Pokedex" component={PokedexScreen} />
-          <Stack.Screen name="Sign Up" component={SignUpScreen} />
+          <Stack.Screen
+            name="Sign Up"
+            component={SignUpScreen}
+            options={{headerShown: false}}
+          />
         </Stack.Navigator>
       }
     </NavigationContainer>
