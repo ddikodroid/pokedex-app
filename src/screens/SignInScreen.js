@@ -4,17 +4,18 @@ import {
   TextInput,
   Text,
   View,
-  Button,
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({route, navigation}) => {
+  const {firstName, lastName} = route.params;
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   const NavigateToHomeScreen = () => {
-    navigation.navigate('Home', {username});
+    navigation.navigate('Home', {username, password});
   };
   const NavigateToSignUpScreen = () => {
     navigation.navigate('Sign Up');
@@ -22,7 +23,9 @@ const SignInScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={{marginHorizontal: width * 0.05}}>
-        <Text>Welcome back,</Text>
+        <Text>
+          Welcome back, {firstName} {lastName}
+        </Text>
         <Text style={styles.title}>Sign in here👇</Text>
         <TextInput
           value={username}
@@ -34,7 +37,7 @@ const SignInScreen = ({navigation}) => {
         />
         <TextInput
           value={password}
-          onChangeText={(password) => setPassword(username)}
+          onChangeText={(password) => setPassword(password)}
           label="password"
           style={styles.input}
           secureTextEntry={true}
