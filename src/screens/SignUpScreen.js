@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,26 +8,38 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const NavigateToSignInScreen = () => {
+    navigation.navigate('Sign In', {firstName, lastName});
+  };
   return (
     <View style={styles.container}>
       <View style={{marginHorizontal: width * 0.05}}>
         <Text>Start the journey,</Text>
         <Text style={styles.title}>Sign up here👇</Text>
+        <View >
         <TextInput
-          //value={username}
+          onChangeText = {(txt) => setFirstName(txt)}
           label="firstName"
           style={styles.input}
           placeholder="First Name"
           placeholderTextColor="#757575"
         />
         <TextInput
-          //value={username}
+          onChangeText = {(txt) => setLastName(txt)}
           label="lastName"
           style={styles.input}
           placeholder="Last Name"
           placeholderTextColor="#757575"
         />
+        </View>
+        
         <TextInput
           //value={username}
           label="username"
@@ -43,7 +55,17 @@ const SignUpScreen = () => {
           placeholder="Password"
           placeholderTextColor="#757575"
         />
-        <TouchableOpacity style={styles.button}>
+        <TextInput
+          //value={password}
+          label="password"
+          style={styles.input}
+          secureTextEntry={true}
+          placeholder="Confirm Password"
+          placeholderTextColor="#757575"
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={NavigateToSignInScreen}>
           <Text style={{fontSize: 16, fontWeight: 'bold'}}>Sign Up</Text>
         </TouchableOpacity>
       </View>
@@ -60,6 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: width * 0.04,
+    
   },
   input: {
     width: width * 0.7,
