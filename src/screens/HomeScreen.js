@@ -18,6 +18,9 @@ const HomeScreen = ({route, navigation}) => {
   const NavigateToSignUp = () => {
     navigation.navigate('Sign Up');
   };
+  const NavigateToProfile = () => {
+    navigation.navigate('Profile');
+  };
 
   return (
     <View style={styles.container}>
@@ -38,6 +41,11 @@ const HomeScreen = ({route, navigation}) => {
       <TouchableOpacity>
         <Text style={styles.buttonText} onPress={NavigateToSignUp}>
           Check Sign Up Screen
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.buttonText} onPress={NavigateToProfile}>
+          Check Profile Screen
         </Text>
       </TouchableOpacity>
     </View>
