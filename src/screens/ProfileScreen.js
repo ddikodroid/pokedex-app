@@ -1,15 +1,21 @@
 import React from 'react';
 import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {useSelector} from 'react-redux';
+import { useEffect } from 'react/cjs/react.development';
 
-const ProfileScreen = ({route, navigation}) => {
-  const {fN, lN, uN} = route.params;
+const ProfileScreen = ({navigation}) => {
+  const userData = useSelector((state) => state.data);
+  React.useEffect(()=>{
+    console.log(userData)
+  })
   return (
     <View style={styles.container}>
       <Text>Profile Screen</Text>
       <Text>
-        Full Name: {fN} {lN}
+        Full Name: {userData.firstName} {userData.lastName}
       </Text>
-      <Text>Username: {uN}</Text>
+      <Text>Username: {userData.username}</Text>
+      <Text>Password: {userData.password}</Text>
     </View>
   );
 };

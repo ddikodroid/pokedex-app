@@ -8,13 +8,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import {useSelector, useDispatch} from 'react-redux';
+
 const SignUpScreen = ({route, navigation}) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
+  //const dataUser = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const NavigateToSignInScreen = () => {
+    dispatch({
+      type: 'SIGNUP',
+      payload: {firstName, lastName, username, password},
+    });
     navigation.navigate('Sign In', {firstName, lastName});
   };
 
@@ -30,6 +39,7 @@ const SignUpScreen = ({route, navigation}) => {
             style={styles.input}
             placeholder="First Name"
             placeholderTextColor="#757575"
+            //value={dataUser.data}
           />
           <TextInput
             onChangeText={(txt) => setLastName(txt)}
@@ -42,7 +52,7 @@ const SignUpScreen = ({route, navigation}) => {
 
         <TextInput
           //value={username}
-          onSelectionChange={(txt) => setUsername(txt)}
+          onChangeText={(txt) => setUsername(txt)}
           label="username"
           style={styles.input}
           placeholder="Username"
@@ -50,6 +60,7 @@ const SignUpScreen = ({route, navigation}) => {
         />
         <TextInput
           //value={password}
+          onChangeText={(pass) => setPassword(pass)}
           label="password"
           style={styles.input}
           secureTextEntry={true}
