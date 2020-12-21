@@ -8,8 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const SignUpScreen = ({navigation}) => {
-
+const SignUpScreen = ({route, navigation}) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState();
@@ -18,30 +17,32 @@ const SignUpScreen = ({navigation}) => {
   const NavigateToSignInScreen = () => {
     navigation.navigate('Sign In', {firstName, lastName});
   };
+
   return (
     <View style={styles.container}>
       <View style={{marginHorizontal: width * 0.05}}>
         <Text>Start the journey,</Text>
         <Text style={styles.title}>Sign up here👇</Text>
-        <View >
-        <TextInput
-          onChangeText = {(txt) => setFirstName(txt)}
-          label="firstName"
-          style={styles.input}
-          placeholder="First Name"
-          placeholderTextColor="#757575"
-        />
-        <TextInput
-          onChangeText = {(txt) => setLastName(txt)}
-          label="lastName"
-          style={styles.input}
-          placeholder="Last Name"
-          placeholderTextColor="#757575"
-        />
+        <View>
+          <TextInput
+            onChangeText={(txt) => setFirstName(txt)}
+            label="firstName"
+            style={styles.input}
+            placeholder="First Name"
+            placeholderTextColor="#757575"
+          />
+          <TextInput
+            onChangeText={(txt) => setLastName(txt)}
+            label="lastName"
+            style={styles.input}
+            placeholder="Last Name"
+            placeholderTextColor="#757575"
+          />
         </View>
-        
+
         <TextInput
           //value={username}
+          onSelectionChange={(txt) => setUsername(txt)}
           label="username"
           style={styles.input}
           placeholder="Username"
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: width * 0.04,
-    
   },
   input: {
     width: width * 0.7,
