@@ -11,11 +11,11 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 
 const SignUpScreen = ({route, navigation}) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('John');
+  const [lastName, setLastName] = useState('Doe');
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [favoritePokemon, setFavoritePokemon] = useState('');
+  const [favoritePokemon, setFavoritePokemon] = useState('Pikachu');
 
   const dispatch = useDispatch();
 
