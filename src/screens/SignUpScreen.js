@@ -15,14 +15,14 @@ const SignUpScreen = ({route, navigation}) => {
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [favoritePokemon, setFavoritePokemon] = useState('');
 
-  //const dataUser = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const NavigateToSignInScreen = () => {
     dispatch({
       type: 'SIGNUP',
-      payload: {firstName, lastName, username, password},
+      payload: {firstName, lastName, username, favoritePokemon, password},
     });
     navigation.navigate('Sign In', {firstName, lastName});
   };
@@ -39,7 +39,6 @@ const SignUpScreen = ({route, navigation}) => {
             style={styles.input}
             placeholder="First Name"
             placeholderTextColor="#757575"
-            //value={dataUser.data}
           />
           <TextInput
             onChangeText={(txt) => setLastName(txt)}
@@ -51,7 +50,6 @@ const SignUpScreen = ({route, navigation}) => {
         </View>
 
         <TextInput
-          //value={username}
           onChangeText={(txt) => setUsername(txt)}
           label="username"
           style={styles.input}
@@ -59,7 +57,13 @@ const SignUpScreen = ({route, navigation}) => {
           placeholderTextColor="#757575"
         />
         <TextInput
-          //value={password}
+          onChangeText={(txt) => setFavoritePokemon(txt)}
+          label="favPokemon"
+          style={styles.input}
+          placeholder="Favorite Pokemon"
+          placeholderTextColor="#757575"
+        />
+        <TextInput
           onChangeText={(pass) => setPassword(pass)}
           label="password"
           style={styles.input}
@@ -68,7 +72,6 @@ const SignUpScreen = ({route, navigation}) => {
           placeholderTextColor="#757575"
         />
         <TextInput
-          //value={password}
           label="password"
           style={styles.input}
           secureTextEntry={true}
