@@ -11,34 +11,50 @@ import PokedexScreen from './src/screens/PokedexScreen';
 import {Header} from 'react-native/Libraries/NewAppScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+
+import {Provider} from 'react-redux';
+import {store} from './redux';
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      {
-        <Stack.Navigator initialRouteName="Splash">
-          <Stack.Screen
-            name="Splash"
-            component={SplashScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Sign In"
-            component={SignInScreen}
-            options={{headerShown: false}}
-            initialParams={{firstName: 'User'}}
-          />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Pokedex" component={PokedexScreen} />
-          <Stack.Screen
-            name="Sign Up"
-            component={SignUpScreen}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      }
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        {
+          <Stack.Navigator initialRouteName="Splash">
+            <Stack.Screen
+              name="Splash"
+              component={SplashScreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Sign In"
+              component={SignInScreen}
+              options={{headerShown: false}}
+              initialParams={{firstName: 'User'}}
+            />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Pokedex" component={PokedexScreen} />
+            <Stack.Screen
+              name="Sign Up"
+              component={SignUpScreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={ProfileScreen}
+              initialParams={{
+                firstName: 'Diko',
+                lastName: 'Nabil',
+                username: 'diko',
+              }}
+            />
+          </Stack.Navigator>
+        }
+      </NavigationContainer>
+    </Provider>
   );
 };
 
