@@ -6,6 +6,7 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -32,18 +33,22 @@ const SignUpScreen = ({route, navigation}) => {
       <View style={{marginHorizontal: width * 0.05}}>
         <Text>Start the journey,</Text>
         <Text style={styles.title}>Sign up here👇</Text>
-        <View>
+
+        <View style={{flexDirection: 'row'}}>
           <TextInput
             onChangeText={(txt) => setFirstName(txt)}
             label="firstName"
-            style={styles.input}
+            style={[
+              styles.input,
+              {width: width * 0.4, marginRight: width * 0.025},
+            ]}
             placeholder="First Name"
             placeholderTextColor="#757575"
           />
           <TextInput
             onChangeText={(txt) => setLastName(txt)}
             label="lastName"
-            style={styles.input}
+            style={[styles.input, {width: width * 0.275}]}
             placeholder="Last Name"
             placeholderTextColor="#757575"
           />
