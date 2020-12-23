@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
+  Alert,
 } from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -16,16 +17,28 @@ const SignUpScreen = ({route, navigation}) => {
   const [lastName, setLastName] = useState('Doe');
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   const [favoritePokemon, setFavoritePokemon] = useState('Pikachu');
 
   const dispatch = useDispatch();
 
+  const signUpData = {
+    firstName: firstName,
+    lastName: lastName,
+    username: username,
+    password: password,
+  };
+
   const NavigateToSignInScreen = () => {
-    dispatch({
-      type: 'SIGNUP',
-      payload: {firstName, lastName, username, favoritePokemon, password},
-    });
-    navigation.navigate('Sign In', {firstName, lastName});
+    if (password !== confirmPassword) {
+      Alert.alert('Password Gak Sama Anjing!!');
+    } else {
+      dispatch({
+        type: 'SIGNUP',
+        payload: signUpData,
+      });
+      navigation.navigate('Sign In', {lastName});
+    }
   };
 
   return (
@@ -77,7 +90,8 @@ const SignUpScreen = ({route, navigation}) => {
           placeholderTextColor="#757575"
         />
         <TextInput
-          label="password"
+          onChangeText={(pass) => setConfirmPassword(pass)}
+          label="confirmpassword"
           style={styles.input}
           secureTextEntry={true}
           placeholder="Confirm Password"

@@ -6,16 +6,24 @@ import {
   View,
   Dimensions,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
-
+import {useSelector} from 'react-redux';
 const SignInScreen = ({route, navigation}) => {
   const {firstName, lastName} = route.params;
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
+  const userData = useSelector(state => state.data)
+
   const NavigateToHomeScreen = () => {
-    navigation.navigate('Home', {username, password});
+    if (username === userData.username && password === userData.password){
+      navigation.navigate('Home', {username});
+    }else{
+      Alert.alert('Username atau passwordnya salah anjing!!!');
+    }
+    //
   };
   const NavigateToSignUpScreen = () => {
     navigation.navigate('Sign Up');
@@ -23,9 +31,7 @@ const SignInScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={{marginHorizontal: width * 0.05}}>
-        <Text>
-          Welcome back, {firstName} {lastName}
-        </Text>
+        <Text>Welcome back, {lastName}</Text>
         <Text style={styles.title}>Sign in here👇</Text>
         <TextInput
           value={username}

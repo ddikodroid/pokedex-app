@@ -1,10 +1,10 @@
 const initialState = {
-  data: 'Default',
+  data:null,
 };
 
 const reducer = (state = initialState, action) => {
   if (action.type === 'SIGNUP') {
-    console.log('Cek Reducer');
+    console.log('Sign Up Berhasil');
     return {
       ...state,
       data: action.payload,
