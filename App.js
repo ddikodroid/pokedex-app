@@ -35,7 +35,11 @@ const App = () => {
               options={{headerShown: false}}
               initialParams={{firstName: 'User'}}
             />
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{headerLeft: null}}
+            />
             <Stack.Screen name="Pokedex" component={PokedexScreen} />
             <Stack.Screen
               name="Sign Up"
