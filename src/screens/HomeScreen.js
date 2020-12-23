@@ -7,8 +7,8 @@ import {
   Dimensions,
 } from 'react-native';
 
-const HomeScreen = ({route, navigation}) => {
-  const {username, password} = route.params;
+const HomeScreen = ({navigation}) => {
+  //const {username, password} = route.params;
   const NavigateToPokedex = () => {
     navigation.navigate('Pokedex');
   };
@@ -25,7 +25,7 @@ const HomeScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={{alignSelf: 'flex-start'}}>
-        <Text style={styles.title}>Hello, {username} {password}</Text>
+        <Text style={styles.title}>Hello</Text>
       </View>
       <Text>ϞϞ(๑⚈ ․̫ ⚈๑)∩</Text>
       <TouchableOpacity>

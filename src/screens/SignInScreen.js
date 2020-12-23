@@ -36,7 +36,7 @@ const SignInScreen = ({route, navigation}) => {
         username === userData.data.username &&
         password === userData.data.password
       ) {
-        navigation.navigate('Home', {username});
+        navigation.navigate('Home Tab', {username});
       } else {
         Alert.alert('Password salah');
       }

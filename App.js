@@ -12,7 +12,7 @@ import {Header} from 'react-native/Libraries/NewAppScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
-
+import HomeTabScreen from './src/screens/HomeTabScreen';
 import {Provider} from 'react-redux';
 import {store} from './redux';
 
@@ -34,6 +34,11 @@ const App = () => {
               component={SignInScreen}
               options={{headerShown: false}}
               initialParams={{firstName: 'User'}}
+            />
+            <Stack.Screen
+              name="Home Tab"
+              component={HomeTabScreen}
+              options={{headerLeft: false, headerTitle: false}}
             />
             <Stack.Screen
               name="Home"
