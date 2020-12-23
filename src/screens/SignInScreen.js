@@ -15,15 +15,32 @@ const SignInScreen = ({route, navigation}) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const userData = useSelector(state => state.data)
+  const userData = useSelector((state) => state);
 
   const NavigateToHomeScreen = () => {
-    if (username === userData.username && password === userData.password){
-      navigation.navigate('Home', {username});
-    }else{
-      Alert.alert('Username atau passwordnya salah anjing!!!');
+    let errorField = '';
+    if (!username && !password) {
+      errorField = 'Username dan password';
+    } else if (!username) {
+      errorField = 'Username';
+    } else if (!password) {
+      errorField = 'Password';
+    } else if (!userData) {
+      errorField = 'Data';
     }
-    //
+
+    if (errorField) {
+      Alert.alert(`${errorField} tidak ada!!!`);
+    } else {
+      if (
+        username === userData.data.username &&
+        password === userData.data.password
+      ) {
+        navigation.navigate('Home', {username});
+      } else {
+        Alert.alert('Password salah');
+      }
+    }
   };
   const NavigateToSignUpScreen = () => {
     navigation.navigate('Sign Up');

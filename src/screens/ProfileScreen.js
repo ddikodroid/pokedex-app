@@ -11,12 +11,13 @@ import {useSelector} from 'react-redux';
 import axios from 'axios';
 
 const ProfileScreen = ({navigation}) => {
-  const userData = useSelector((state) => state.data);
+  const userData = useSelector((state) => state);
   const [pokemonAvatar, setPokemonAvatar] = useState();
   useEffect(() => {
+    console.log(userData)
     axios
       .get(
-        `https://pokeapi.co/api/v2/pokemon/${userData.favoritePokemon.toLowerCase()}`,
+        `https://pokeapi.co/api/v2/pokemon/${userData.data.favoritePokemon.toLowerCase()}`,
       )
       .then((response) => {
         console.log(response);
@@ -33,28 +34,12 @@ const ProfileScreen = ({navigation}) => {
         <View style={styles.profileCard}>
           <View style={styles.profileContainer}>
             <Text>My name is</Text>
-            <Text style={styles.fontBig}>{userData.lastName}</Text>
-            <Text style={styles.fontSmall}>{userData.firstName}</Text>
+            <Text style={styles.fontBig}>{userData.data.lastName}</Text>
+            <Text style={styles.fontSmall}>{userData.data.firstName}</Text>
             <Text>My pokemon is</Text>
-            <Text style={styles.fontBig}>{userData.favoritePokemon}</Text>
+            <Text style={styles.fontBig}>{userData.data.favoritePokemon}</Text>
           </View>
         </View>
-
-        <Text>{pokemonAvatar}</Text>
-        <Text>Profile Screen</Text>
-        <Text>
-          Full Name: {userData.firstName} {userData.lastName}
-        </Text>
-        <Text>Username: {userData.username}</Text>
-        <Text>Password: {userData.password}</Text>
-        <Text>
-          Favorite Pokemon:{' '}
-          {userData.favoritePokemon === userData.favoritePokemon.toUpperCase()
-            ? userData.favoritePokemon.charAt(0) +
-              userData.favoritePokemon.slice(1).toLowerCase()
-            : userData.favoritePokemon.charAt(0).toUpperCase() +
-              userData.favoritePokemon.slice(1)}
-        </Text>
       </ScrollView>
     </>
   );

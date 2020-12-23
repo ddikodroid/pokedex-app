@@ -27,6 +27,7 @@ const SignUpScreen = ({route, navigation}) => {
     lastName: lastName,
     username: username,
     password: password,
+    favoritePokemon: favoritePokemon,
   };
 
   const NavigateToSignInScreen = () => {
