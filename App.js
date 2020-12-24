@@ -4,15 +4,16 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, HeaderTitle} from '@react-navigation/stack';
-
-import SplashScreen from './src/screens/SplashScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import PokedexScreen from './src/screens/PokedexScreen';
+import {
+  HomeScreen,
+  HomeTabScreen,
+  SplashScreen,
+  SignInScreen,
+  SignUpScreen,
+  PokedexScreen,
+  ProfileScreen,
+} from './src/screens';
 import {Header} from 'react-native/Libraries/NewAppScreen';
-import SignInScreen from './src/screens/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
-import ProfileScreen from './src/screens/ProfileScreen';
-import HomeTabScreen from './src/screens/HomeTabScreen';
 import {Provider} from 'react-redux';
 import {store} from './redux';
 
@@ -38,7 +39,7 @@ const App = () => {
             <Stack.Screen
               name="Home Tab"
               component={HomeTabScreen}
-              options={{headerLeft: false, headerTitle: false}}
+              options={{headerLeft: false, headerStyle:{backgroundColor:'red'}}}
             />
             <Stack.Screen
               name="Home"
