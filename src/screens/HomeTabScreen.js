@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 const HomeTabScreen = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName='Home'>
       <Tab.Screen name="Pokedex" component={PokedexScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
